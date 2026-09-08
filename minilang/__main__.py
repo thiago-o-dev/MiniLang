@@ -7,14 +7,17 @@ from .analise.lexer import tokenizar
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
 
-    fonte = input("MiniLang> ")
+    while True:
+        fonte = input("MiniLang> ")
 
-    try:
-        for token in tokenizar(fonte):
-            print(f"{token.pos:>4}  {token.tipo.value:<13} {token.lexema!r}")
-    except ErroLexico as erro:
-        print(erro)
+        if fonte.strip() == "exit()":   
+            break
 
+        try:
+            for token in tokenizar(fonte):
+                print(f"{token.pos:>4}  {token.tipo.value:<13} {token.lexema!r}")
+        except ErroLexico as erro:
+            print(erro)
 
 if __name__ == "__main__":
     main()
