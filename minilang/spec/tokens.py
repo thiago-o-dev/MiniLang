@@ -7,6 +7,9 @@ from enum import Enum
 class TokenType(Enum):
     KW_INT = "KW_INT"
     KW_PRINT = "KW_PRINT"
+    KW_IF = "KW_IF"
+    KW_ELSE = "KW_ELSE"
+    KW_WHILE = "KW_WHILE"
 
     IDENT = "IDENT"
     INT_LITERAL = "INT_LITERAL"
@@ -17,9 +20,19 @@ class TokenType(Enum):
     STAR = "STAR"
     SLASH = "SLASH"
 
+    # Tipos especificos da familia REL_OP, como ARITH_OP gera PLUS e MINUS (slide 79 - aula 03)
+    EQ = "EQ"
+    NE = "NE"
+    LT = "LT"
+    LE = "LE"
+    GT = "GT"
+    GE = "GE"
+
     LPAREN = "LPAREN"
     RPAREN = "RPAREN"
     SEMICOLON = "SEMICOLON"
+    LBRACE = "LBRACE"
+    RBRACE = "RBRACE"
 
     # Reconhecidos e ignorados (slide 79).
     WHITESPACE = "WHITESPACE"

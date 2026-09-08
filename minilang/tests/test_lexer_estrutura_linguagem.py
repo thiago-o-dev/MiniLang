@@ -14,7 +14,7 @@ def test_empty_string_produces_no_tokens():
     assert tokenizar("") == []
 
 def test_keywords():
-    """Testa as KW 'int' e 'print' e ve se estão com o value correto."""
+    """Testa as KW 'int' e 'print' e ve se estao com o value correto."""
     tokens = tokenizar("int print")
     assert len(tokens) == 2
     assert tokens[0].tipo.value == "KW_INT"
@@ -27,7 +27,7 @@ def test_keyword_prefix_is_identifier():
     assert [t.lexema for t in tokens] == ["intx", "printer"]
 
 def test_assignment():
-    """Testa os tipos de uma expressão."""
+    """Testa os tipos de uma expressao."""
     tokens = tokenizar("x = 5")
     types = [t.tipo.value for t in tokens]
     assert types == ["IDENT", "ASSIGN", "INT_LITERAL"]
@@ -38,7 +38,7 @@ def test_token_positions():
     assert [t.pos for t in tokens] == [0, 2, 4]
 
 def test_arithmetic():
-    """Testa os tipos de aritmética complexa."""
+    """Testa os tipos de aritmetica complexa."""
     tokens = tokenizar("a + b - c * d / e")
     assert len(tokens) == 9
     assert tokens[1].tipo.value == "PLUS"
@@ -52,7 +52,7 @@ def test_slash_vence_comentario_por_tamanho():
     assert [t.tipo.value for t in tokenizar("a // b")] == ["IDENT"]
 
 def test_whitespace_ignored():
-    """Vendo se os espaços foram ignorados."""
+    """Vendo se os espacos foram ignorados."""
     tokens = tokenizar("x   =   5")
     assert len(tokens) == 3
 
@@ -64,13 +64,13 @@ def test_whitespace_and_comment_not_ignored():
     assert tokens[6].tipo.value == "LINE_COMMENT"
 
 def test_comments_is_single_token():
-    """Testa se o comentário é um token só."""
+    """Testa se o comentario e um token so."""
     tokens = tokenizar("x=5// esse e comentario", True)
     assert len(tokens) == 4
     assert tokens[3].tipo.value == "LINE_COMMENT"
 
 def test_invalid_character_raises_error():
-    """Testa se letras fora do alfabeto estão levantando ErroLexico."""
+    """Acento fica fora da MiniLang-Core (slide 67), entao 'a' agudo e erro lexico."""
     with pytest.raises(ErroLexico) as erro:
         tokenizar("á")
     assert "fora do alfabeto-fonte" in str(erro.value)

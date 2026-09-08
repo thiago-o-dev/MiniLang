@@ -1,8 +1,12 @@
+import sys
+
 from .analise.erros import ErroLexico
 from .analise.lexer import tokenizar
 
 
 def main() -> None:
+    sys.stdout.reconfigure(encoding="utf-8")
+
     fonte = input("MiniLang> ")
 
     try:
