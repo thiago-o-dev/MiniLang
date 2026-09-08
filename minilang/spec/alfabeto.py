@@ -5,10 +5,12 @@ import string
 LETRAS = frozenset(string.ascii_letters)
 DIGITOS = frozenset(string.digits)
 ESPACOS_EM_BRANCO = frozenset(" \t\r\n")
-SIMBOLOS = frozenset("+-*/=();")
+SIMBOLOS_NUCLEO = frozenset("+-*/=();")
+SIMBOLOS_EXTENSAO = frozenset("<>!{}")
+SIMBOLOS = SIMBOLOS_NUCLEO | SIMBOLOS_EXTENSAO
 
-INICIO_IDENTIFICADOR = LETRAS | {"_"}
-RESTO_IDENTIFICADOR = LETRAS | DIGITOS | {"_"}
+INICIAL = LETRAS | {"_"}
+CONTINUACAO = LETRAS | DIGITOS | {"_"}
 
 ALFABETO_FONTE = LETRAS | DIGITOS | ESPACOS_EM_BRANCO | SIMBOLOS | {"_"}
 
