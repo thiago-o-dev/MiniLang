@@ -39,6 +39,12 @@ def test_exemplo_pertence_a_propria_classe():
             assert classe.padrao.fullmatch(exemplo), f"{classe.nome} rejeita {exemplo!r}"
 
 
+def test_nenhum_padrao_aceita_a_palavra_vazia():
+    """Se uma classe aceitasse ε, o cursor do lexer nao avancaria."""
+    for classe in TABELA_LEXICA:
+        assert classe.padrao.fullmatch("") is None, classe.nome
+
+
 def test_toda_classe_tem_caso_de_teste():
     """Slide 96 pede a suite por classe; nenhuma pode ficar de fora."""
     testadas = {caso.classe for caso in CASOS}

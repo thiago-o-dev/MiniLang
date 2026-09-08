@@ -52,13 +52,13 @@ posicao 8: '@' fora do alfabeto-fonte
 ## Rodar os testes
 
 ```bash
-pytest
+python testes.py     # verificação da entrega (slide 99): termina com SUCESSO ou FALHA
+pytest               # mesma suíte, saída crua do pytest
 ```
 
 | Arquivo | O que verifica |
 | --- | --- |
-| `test_estrutura.py` | Nenhuma classe aceita ε; símbolo fora do alfabeto vira erro |
-| `test_lexer_estrutura_linguagem.py` | O lexer separa uma linha em tokens |
-| `test_casos.py` | Os casos do slide 96, nos mínimos exigidos |
-| `test_interacoes.py` | Os oito blocos do slide 98 |
-| `test_conformidade.py` | 11 classes, 9 itens preenchidos, nenhuma sem caso de teste |
+| `test_conformidade.py` | O catálogo: 11 classes, 9 itens preenchidos, nenhuma sem caso de teste |
+| `test_casos.py` | Os casos por classe do slide 96, nos mínimos exigidos |
+| `test_interacoes.py` | Os oito blocos do slide 98 e os Exercícios 10 e 11 |
+| `test_lexer.py` | O lexer: posição, fonte vazia, família ARITH_OP, alfabeto |

@@ -7,6 +7,8 @@ nem de nenhum token: acrescentar uma classe é acrescentar uma linha em
 ## Estrutura de arquivos
 
 ```
+README.md               O catálogo (a entrega)
+testes.py               Verificação do slide 99
 minilang/
 ├── spec/
 │   ├── alfabeto.py     ΣFonte e os conjuntos derivados (slides 70, 76, 77)
@@ -19,7 +21,7 @@ minilang/
 │   ├── lexer.py        tokenizar(): maior lexema + reclassificação
 │   └── erros.py        ErroLexico, com posição e motivo
 │
-├── tests/              Cinco arquivos (ver como-rodar.md)
+├── tests/              Quatro arquivos (ver como-rodar.md)
 └── __main__.py         Linha de comando
 ```
 
